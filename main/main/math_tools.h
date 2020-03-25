@@ -132,14 +132,19 @@ void transpose(Matrix M, Matrix& T) {
 }
 
 
-void Inversa (Matrix M,Matrix R , Matrix& T) {
+void Inversa (Matrix M, Matrix& T) {
+    Matrix matriz_cof;
     zeroes(T, M.size());
+    zeroes(matriz_cof, M.size());
+
+    cofactors(M, matriz_cof);
+    
     float det;
     det = determinant(M);
     if (det != 0) {
         for (int i = 0; i < M.size(); i++)
             for (int j = 0; j < M.at(0).size(); j++)
-                T.at(j).at(i) = R.at(i).at(j) / det;
+                T.at(j).at(i) = matriz_cof.at(i).at(j) / det;
     }
     else {
         exit(EXIT_FAILURE);

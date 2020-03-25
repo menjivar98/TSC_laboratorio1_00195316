@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-     Matrix matriz, matriz_cof, matriz_cof_tra, Resultado;
+     Matrix matriz, matriz_cof, Resultado;
     
     zeroes(matriz,3);
     
@@ -19,10 +19,9 @@ int main()
     matriz.at(1).at(0) = 4; matriz.at(1).at(1) = 5;	 matriz.at(1).at(2) = 6;
     matriz.at(2).at(0) = 7; matriz.at(2).at(1) = 8;  matriz.at(2).at(2) = 9;
     
-        cofactors(matriz,matriz_cof);
-        Inversa(matriz, matriz_cof, Resultado);
         
-        showMatrix(Resultado);
+   Inversa(matriz, Resultado);
+   showMatrix(Resultado);
 
         
     
