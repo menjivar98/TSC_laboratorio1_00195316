@@ -19,30 +19,14 @@ int main()
     matriz.at(1).at(0) = 4; matriz.at(1).at(1) = 5;	 matriz.at(1).at(2) = 6;
     matriz.at(2).at(0) = 7; matriz.at(2).at(1) = 8;  matriz.at(2).at(2) = 9;
     
-    total = determinant(matriz);
-    
-    if(total != 0)
-    {
-    	cofactors(matriz,matriz_cof);
-
-        transpose(matriz_cof, matriz_cof_tra);
-        
-        Inversa(matriz, matriz_cof_tra, Resultado);
+        cofactors(matriz,matriz_cof);
+        Inversa(matriz, matriz_cof, Resultado);
         
         showMatrix(Resultado);
-    
-    	cout<<"\n";
-    	//showMatrix(matriz_cof_tra,total);
-	}
-	else
-	{
-		
-			
-	}
 
-    /*inversa(matriz, matriz_cof , Resultado);
-    showMatrix(Resultado);
-    */
+        
+    
+
 
 
 

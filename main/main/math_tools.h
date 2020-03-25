@@ -136,7 +136,13 @@ void Inversa (Matrix M,Matrix R , Matrix& T) {
     zeroes(T, M.size());
     float det;
     det = determinant(M);
-     for (int i = 0; i < M.size(); i++)
-        for (int j = 0; j < M.at(0).size(); j++)
-            T.at(j).at(i) = R.at(i).at(j) / det ;
+    if (det != 0) {
+        for (int i = 0; i < M.size(); i++)
+            for (int j = 0; j < M.at(0).size(); j++)
+                T.at(j).at(i) = R.at(i).at(j) / det;
+    }
+    else {
+        exit(EXIT_FAILURE);
+    }
+    
 }
