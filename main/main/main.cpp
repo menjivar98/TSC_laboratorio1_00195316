@@ -2,20 +2,49 @@
 //
 
 #include <iostream>
+#include "math_tools.h"
+#include "displays_tools.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!\n";
+     Matrix matriz, matriz_cof, matriz_cof_tra, Resultado;
+    
+    zeroes(matriz,3);
+    
+    float total;
+    
+	matriz.at(0).at(0) = 2;	matriz.at(0).at(1) = 2;  matriz.at(0).at(2) = 3;
+    matriz.at(1).at(0) = 4; matriz.at(1).at(1) = 5;	 matriz.at(1).at(2) = 6;
+    matriz.at(2).at(0) = 7; matriz.at(2).at(1) = 8;  matriz.at(2).at(2) = 9;
+    
+    total = determinant(matriz);
+    
+    if(total != 0)
+    {
+    	cofactors(matriz,matriz_cof);
+
+        transpose(matriz_cof, matriz_cof_tra);
+        
+        Inversa(matriz, matriz_cof_tra, Resultado);
+        
+        showMatrix(Resultado);
+    
+    	cout<<"\n";
+    	//showMatrix(matriz_cof_tra,total);
+	}
+	else
+	{
+		
+			
+	}
+
+    /*inversa(matriz, matriz_cof , Resultado);
+    showMatrix(Resultado);
+    */
+
+
+
 }
 
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
-
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
